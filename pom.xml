@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.katasoft.cinder.maven</groupId>
+        <artifactId>flex-pom</artifactId>
+        <version>2</version>
+    </parent>
+
+    <groupId>org.katasource.concoction</groupId>
+    <artifactId>concoction-root</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1-SNAPSHOT</version>
+    <name>Concoction</name>
+    <description>
+        Concoction is a powerful, simple MVC framework for Adobe Flex.
+    </description>
+    <url>http://issues.katasource.org/browse/CCC</url>
+    <inceptionYear>2010</inceptionYear>
+
+    <scm>
+        <connection>scm:svn:http://kyuuketsu.selfip.biz/concoction/trunk</connection>
+        <developerConnection>scm:svn:http://kyuuketsu.selfip.biz/concoction/trunk</developerConnection>
+        <url>http://kyuuketsu.selfip.biz/websvn/listing.php?repname=Concoction</url>
+    </scm>
+
+    <ciManagement>
+        <system>JetBrains TeamCity</system>
+        <url>http://kyuuketsu.selfip.biz/teamcity</url>
+    </ciManagement>
+
+    <issueManagement>
+        <system>Atlassian JIRA</system>
+        <url>http://issues.katasource.org/browse/CCC</url>
+    </issueManagement>
+
+    <modules>
+        <module>core</module>
+        <module>rpc</module>
+        <module>spring</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.katasource.concoction</groupId>
+                <artifactId>concoction-core</artifactId>
+                <version>${project.version}</version>
+                <type>swc</type>
+            </dependency>
+            <dependency>
+                <groupId>org.katasource.concoction</groupId>
+                <artifactId>concoction-rpc</artifactId>
+                <version>${project.version}</version>
+                <type>swc</type>
+            </dependency>
+            <dependency>
+                <groupId>org.katasource.concoction</groupId>
+                <artifactId>concoction-spring</artifactId>
+                <version>${project.version}</version>
+                <type>swc</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

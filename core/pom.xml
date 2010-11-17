@@ -45,6 +45,30 @@
         </dependency>
         <dependency>
             <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>spark</artifactId>
+            <type>rb.swc</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>spark</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>sparkskins</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>textLayout</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
             <artifactId>utilities</artifactId>
             <type>swc</type>
         </dependency>

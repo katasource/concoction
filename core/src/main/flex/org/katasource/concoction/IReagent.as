@@ -5,6 +5,10 @@ package org.katasource.concoction {
  */
 public interface IReagent {
 
+    function get concoction():IConcoction;
+
+    function set concoction(concoction:IConcoction):void;
+
     function get name():String;
 }
 }

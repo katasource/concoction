@@ -5,11 +5,11 @@ import flash.utils.Dictionary;
  * @author Bryan Turner
  * @since 0.1
  */
-public class DefaultView implements IView {
+public class DefaultViewManager implements IViewManager {
 
     private var _mediators:Dictionary;
 
-    public function DefaultView() {
+    public function DefaultViewManager() {
         _mediators = new Dictionary()
     }
 
@@ -31,4 +31,27 @@ public class DefaultView implements IView {
         return _mediators.hasOwnProperty(name);
     }
 }
+}
+
+import org.as3commons.reflect.Method;
+import org.as3commons.reflect.Type;
+import org.katasource.concoction.IMediator;
+
+class MediatorState {
+
+    private var _mediator:IMediator;
+
+    public function MediatorState(mediator:IMediator) {
+        _mediator = mediator;
+
+        findCallbacks(mediator);
+    }
+
+    protected function findCallbacks(mediator:IMediator):void {
+        var type:Type = Type.forInstance(mediator);
+
+        for each (var method:Method in type.methods) {
+
+        }
+    }
 }

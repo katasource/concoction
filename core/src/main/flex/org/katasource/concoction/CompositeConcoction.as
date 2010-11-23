@@ -7,9 +7,9 @@ import org.katasource.concoction.lifecycle.IDisposable;
  */
 public class CompositeConcoction extends Reagent implements IConcoction, IDisposable {
 
-    private var _model:IModel;
+    private var _model:IModelManager;
     private var _notifier:INotifier;
-    private var _view:IView;
+    private var _view:IViewManager;
 
     public function CompositeConcoction() {
         _model = createModel();
@@ -58,16 +58,16 @@ public class CompositeConcoction extends Reagent implements IConcoction, IDispos
         return _model.hasProxy(name);
     }
 
-    protected function createModel():IModel {
-        return new DefaultModel();
+    protected function createModel():IModelManager {
+        return new DefaultModelManager();
     }
 
     protected function createNotifier():INotifier {
         return new DefaultNotifier();
     }
 
-    protected function createView():IView {
-        return new DefaultView();
+    protected function createView():IViewManager {
+        return new DefaultViewManager();
     }
 }
 }

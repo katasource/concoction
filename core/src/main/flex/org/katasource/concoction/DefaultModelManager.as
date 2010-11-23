@@ -5,11 +5,11 @@ import flash.utils.Dictionary;
  * @author Bryan Turner
  * @since 0.1
  */
-public class DefaultModel implements IModel {
+public class DefaultModelManager implements IModelManager {
 
     private var _proxies:Dictionary;
 
-    public function DefaultModel() {
+    public function DefaultModelManager() {
         _proxies = new Dictionary();
     }
 

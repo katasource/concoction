@@ -78,5 +78,20 @@
             <type>swc</type>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.as3commons</groupId>
+            <artifactId>as3commons-lang</artifactId>
+            <type>swc</type>
+        </dependency>
+        <dependency>
+            <groupId>org.as3commons</groupId>
+            <artifactId>as3commons-logging</artifactId>
+            <type>swc</type>
+        </dependency>
+        <dependency>
+            <groupId>org.as3commons</groupId>
+            <artifactId>as3commons-reflect</artifactId>
+            <type>swc</type>
+        </dependency>
     </dependencies>
 </project>

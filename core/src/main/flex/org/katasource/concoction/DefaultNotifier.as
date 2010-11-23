@@ -7,29 +7,66 @@ import flash.utils.Dictionary;
  */
 public class DefaultNotifier implements INotifier {
 
-    private var _rules:Dictionary;
+    private var _callbacks:Dictionary;
+    private var _listeners:Vector.<INotificationListener>;
 
     public function DefaultNotifier() {
-        _rules = new Dictionary();
+        _callbacks = new Dictionary();
+        _listeners = new Vector.<INotificationListener>();
+    }
+
+    public function addCallback(name:String, callback:Function):void {
+        var callbacks:Vector.<INotificationListener>;
+        if (_callbacks.hasOwnProperty(name)) {
+            callbacks = _callbacks[name];
+        } else {
+            callbacks = new Vector.<INotificationListener>();
+            _callbacks[name] = callbacks;
+        }
+        callbacks.push(new FunctionNotificationListener(callback));
+    }
+
+    public function addListener(listener:INotificationListener):void {
+        _listeners.push(listener);
     }
 
     public function broadcast(notification:INotification):void {
-        if (_rules.hasOwnProperty(notification.name)) {
-            var handlers:Vector.<Function> = _rules[notification.name];
-            for each (var handler:Function in handlers) {
-                if (handler.length == 0) {
-                    //If the handler does not accept any parameters, we invoke the handler directly. For framework
-                    //users, this allows handlers which don't actually care about the content of the notification, but
-                    //rather just care that the notification happened at all.
-                    handler();
-                } else {
-                    //What I'd really like to do here is to determine whether the function wants the notification, or
-                    //the notification's body. That would be a very useful shortcut for framework users. Unfortunately,
-                    //it looks to me like there's no way to describe or introspect a function to find out about the
-                    //parameters to the function. I'd love to learn the secret of that.
-                    handler(notification);
+        notify(notification, _listeners);
+
+        if (_callbacks.hasOwnProperty(notification.name)) {
+            var callbacks:Vector.<INotificationListener> = _callbacks[notification.name];
+
+            notify(notification, callbacks);
+        }
+    }
+
+    public function removeCallback(name:String, callback:Function):Boolean {
+        if (_callbacks.hasOwnProperty(name)) {
+            var callbacks:Vector.<INotificationListener> = _callbacks[name];
+            for (var i:int = 0; i < callbacks.length; ++i) {
+                if (FunctionNotificationListener(callbacks[i]).callback === callback) {
+                    callbacks.splice(i, 1);
+
+                    return true;
                 }
             }
+        }
+        return false;
+    }
+
+    public function removeListener(listener:INotificationListener):Boolean {
+        var index:Number = _listeners.indexOf(listener);
+        if (index > -1) {
+            _listeners.splice(index, 1);
+
+            return true;
+        }
+        return false;
+    }
+
+    protected function notify(notification:INotification, listeners:Vector.<INotificationListener>):void {
+        for each (var listener:INotificationListener in listeners) {
+            listener.onNotification(notification);
         }
     }
 }

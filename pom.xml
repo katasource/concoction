@@ -43,22 +43,6 @@
         <module>spring</module>
     </modules>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.sonatype.flexmojos</groupId>
-                    <artifactId>flexmojos-maven-plugin</artifactId>
-                    <extensions>true</extensions>
-                    <configuration>
-                        <printCompilerConfiguration>false</printCompilerConfiguration>
-                        <storepass/>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -83,7 +67,7 @@
             <dependency>
                 <groupId>org.as3commons</groupId>
                 <artifactId>as3commons-bytecode</artifactId>
-                <version>0.8.1</version>
+                <version>0.8.5</version>
                 <type>swc</type>
             </dependency>
             <dependency>

@@ -1,4 +1,7 @@
 package org.katasource.concoction {
+import org.katasource.concoction.model.IProxy;
+import org.katasource.concoction.view.IMediator;
+
 /**
  * @author Bryan Turner
  * @since 0.1
@@ -18,5 +21,9 @@ public interface IConcoction extends IReagent {
     function hasMediator(name:String):Boolean;
 
     function hasProxy(name:String):Boolean;
+
+    function removeMediator(name:String):void;
+
+    function removeProxy(name:String):void;
 }
 }

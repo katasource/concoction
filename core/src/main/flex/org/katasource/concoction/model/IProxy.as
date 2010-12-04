@@ -1,4 +1,6 @@
-package org.katasource.concoction {
+package org.katasource.concoction.model {
+import org.katasource.concoction.IReagent;
+
 /**
  * @author Bryan Turner
  * @since 0.1

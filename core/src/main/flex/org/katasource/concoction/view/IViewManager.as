@@ -1,4 +1,4 @@
-package org.katasource.concoction {
+package org.katasource.concoction.view {
 /**
  * @author Bryan Turner
  * @since 0.1
@@ -10,5 +10,7 @@ public interface IViewManager {
     function getMediator(name:String):IMediator;
 
     function hasMediator(name:String):Boolean;
+
+    function removeMediator(name:String):void;
 }
 }

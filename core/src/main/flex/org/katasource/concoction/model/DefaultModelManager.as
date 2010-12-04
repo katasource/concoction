@@ -1,4 +1,4 @@
-package org.katasource.concoction {
+package org.katasource.concoction.model {
 import flash.utils.Dictionary;
 
 /**
@@ -29,6 +29,12 @@ public class DefaultModelManager implements IModelManager {
 
     public function hasProxy(name:String):Boolean {
         return _proxies.hasOwnProperty(name);
+    }
+
+    public function removeProxy(name:String):void {
+        if (_proxies.hasOwnProperty(name)) {
+            delete _proxies[name];
+        }
     }
 }
 }

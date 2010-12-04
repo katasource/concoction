@@ -1,5 +1,11 @@
 package org.katasource.concoction {
 import org.katasource.concoction.lifecycle.IDisposable;
+import org.katasource.concoction.model.DefaultModelManager;
+import org.katasource.concoction.model.IModelManager;
+import org.katasource.concoction.model.IProxy;
+import org.katasource.concoction.view.DefaultViewManager;
+import org.katasource.concoction.view.IMediator;
+import org.katasource.concoction.view.IViewManager;
 
 /**
  * @author Bryan Turner
@@ -56,6 +62,14 @@ public class CompositeConcoction extends Reagent implements IConcoction, IDispos
 
     public function hasProxy(name:String):Boolean {
         return _model.hasProxy(name);
+    }
+
+    public function removeMediator(name:String):void {
+        _view.removeMediator(name);
+    }
+
+    public function removeProxy(name:String):void {
+        _model.removeProxy(name);
     }
 
     protected function createModel():IModelManager {

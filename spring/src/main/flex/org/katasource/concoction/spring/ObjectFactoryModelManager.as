@@ -1,6 +1,8 @@
 package org.katasource.concoction.spring {
-import org.katasource.concoction.IModelManager;
-import org.katasource.concoction.IProxy;
+import flash.errors.IllegalOperationError;
+
+import org.katasource.concoction.model.IModelManager;
+import org.katasource.concoction.model.IProxy;
 import org.springextensions.actionscript.ioc.factory.config.IConfigurableListableObjectFactory;
 
 /**
@@ -29,6 +31,10 @@ public class ObjectFactoryModelManager implements IModelManager {
 
     public function hasProxy(name:String):Boolean {
         return _objectFactory.containsObject(name);
+    }
+
+    public function removeProxy(name:String):void {
+        throw new IllegalOperationError("The Spring ObjectFactoryModelManager does not support removing proxies");
     }
 }
 }

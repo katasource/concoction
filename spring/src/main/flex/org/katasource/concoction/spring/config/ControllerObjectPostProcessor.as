@@ -1,12 +1,13 @@
 package org.katasource.concoction.spring.config {
 import org.as3commons.lang.ClassUtils;
+import org.as3commons.lang.StringUtils;
 import org.as3commons.logging.ILogger;
 import org.as3commons.logging.LoggerFactory;
 import org.as3commons.reflect.MetaData;
 import org.as3commons.reflect.MetaDataContainer;
 import org.as3commons.reflect.Method;
 import org.as3commons.reflect.Type;
-import org.katasource.concoction.IControllerManager;
+import org.katasource.concoction.controller.IControllerManager;
 import org.springextensions.actionscript.ioc.factory.config.IObjectPostProcessor;
 
 /**
@@ -79,7 +80,7 @@ public class ControllerObjectPostProcessor implements IObjectPostProcessor {
                 }
             }
 
-            if (notificationName === null || notificationName === undefined) {
+            if (StringUtils.isEmpty(notificationName)) {
                 _logger.error("The NotificationMapping for [{0}] is invalid. No notification name could be " +
                         "calculated for the mapping. Are your constants correct?", [objectAndMethod]);
             } else {

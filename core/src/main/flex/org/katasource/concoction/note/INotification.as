@@ -1,4 +1,4 @@
-package org.katasource.concoction {
+package org.katasource.concoction.note {
 /**
  * @author Bryan Turner
  * @since 0.1

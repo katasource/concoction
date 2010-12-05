@@ -2,8 +2,8 @@ package org.katasource.concoction.view {
 import org.as3commons.lang.StringUtils;
 import org.as3commons.reflect.Method;
 import org.as3commons.reflect.Type;
-import org.katasource.concoction.INotification;
 import org.katasource.concoction.lifecycle.IInitializable;
+import org.katasource.concoction.note.INotification;
 import org.katasource.concoction.support.Reaction;
 
 /**

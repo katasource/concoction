@@ -1,8 +1,8 @@
 package org.katasource.concoction.view {
 import org.as3commons.lang.ClassUtils;
 import org.katasource.concoction.IConcoction;
-import org.katasource.concoction.INotification;
 import org.katasource.concoction.lifecycle.IDisposable;
+import org.katasource.concoction.note.INotification;
 
 /**
  * @author Bryan Turner

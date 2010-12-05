@@ -3,6 +3,10 @@ import org.katasource.concoction.lifecycle.IDisposable;
 import org.katasource.concoction.model.DefaultModelManager;
 import org.katasource.concoction.model.IModelManager;
 import org.katasource.concoction.model.IProxy;
+import org.katasource.concoction.note.DefaultNotifier;
+import org.katasource.concoction.note.INotification;
+import org.katasource.concoction.note.INotifier;
+import org.katasource.concoction.note.Notification;
 import org.katasource.concoction.view.DefaultViewManager;
 import org.katasource.concoction.view.IMediator;
 import org.katasource.concoction.view.IViewManager;
@@ -35,8 +39,15 @@ public class CompositeConcoction extends Reagent implements IConcoction, IDispos
         proxy.concoction = this;
     }
 
-    public function broadcast(notification:INotification):void {
-        _notifier.broadcast(notification);
+    public function broadcast(notificationName:*, notificationBody:*):void {
+        var notification:INotification = createNotification(notificationName, notificationBody);
+        if (notification) {
+            broadcastNotification(notification);
+        }
+    }
+
+    public function broadcastNotification(notification:INotification):void {
+        _notifier.sendNotification(notification);
     }
 
     public function dispose():void {
@@ -74,6 +85,10 @@ public class CompositeConcoction extends Reagent implements IConcoction, IDispos
 
     protected function createModel():IModelManager {
         return new DefaultModelManager();
+    }
+
+    protected function createNotification(name:*, body:*):INotification {
+        return new Notification(name, body);
     }
 
     protected function createNotifier():INotifier {

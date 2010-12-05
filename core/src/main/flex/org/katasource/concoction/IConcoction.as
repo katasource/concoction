@@ -1,5 +1,6 @@
 package org.katasource.concoction {
 import org.katasource.concoction.model.IProxy;
+import org.katasource.concoction.note.INotification;
 import org.katasource.concoction.view.IMediator;
 
 /**
@@ -12,7 +13,9 @@ public interface IConcoction extends IReagent {
 
     function addProxy(proxy:IProxy):void;
 
-    function broadcast(notification:INotification):void;
+    function broadcast(notificationName:*, notificationBody:*):void;
+
+    function broadcastNotification(notification:INotification):void;
 
     function getMediator(name:String):IMediator;
 

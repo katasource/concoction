@@ -1,6 +1,6 @@
 package org.katasource.concoction.view {
-import org.katasource.concoction.INotification;
 import org.katasource.concoction.IReagent;
+import org.katasource.concoction.note.INotification;
 
 /**
  * @author Bryan Turner

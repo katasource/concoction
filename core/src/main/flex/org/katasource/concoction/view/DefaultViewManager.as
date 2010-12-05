@@ -1,5 +1,5 @@
 package org.katasource.concoction.view {
-import flash.utils.Dictionary;
+
 
 /**
  * @author Bryan Turner
@@ -7,10 +7,10 @@ import flash.utils.Dictionary;
  */
 public class DefaultViewManager implements IViewManager {
 
-    private var _mediators:Dictionary;
+    private var _mediators:Object;
 
     public function DefaultViewManager() {
-        _mediators = new Dictionary()
+        _mediators = {};
     }
 
     public function addMediator(mediator:IMediator):void {

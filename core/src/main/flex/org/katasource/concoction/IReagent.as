@@ -1,5 +1,7 @@
 package org.katasource.concoction {
 /**
+ * Base interface for defining any object which is {@link IConcoction}-aware.
+ *
  * @author Bryan Turner
  * @since 0.1
  */

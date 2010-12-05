@@ -15,6 +15,30 @@
     <version>0.1-SNAPSHOT</version>
     <name>Concoction :: Core</name>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.sonatype.flexmojos</groupId>
+                    <artifactId>flexmojos-maven-plugin</artifactId>
+                    <configuration>
+                        <keepAs3Metadatas>
+                            <keepAs3Metadata>Controller</keepAs3Metadata>
+                            <keepAs3Metadata>Mediator</keepAs3Metadata>
+                            <keepAs3Metadata>Mock</keepAs3Metadata>
+                            <keepAs3Metadata>Proxy</keepAs3Metadata>
+                            <keepAs3Metadata>Reaction</keepAs3Metadata>
+                            <keepAs3Metadata>Response</keepAs3Metadata>
+                            <keepAs3Metadata>RunWith</keepAs3Metadata>
+                            <keepAs3Metadata>Test</keepAs3Metadata>
+                        </keepAs3Metadatas>
+                        <storepass/>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>com.adobe.flex.framework</groupId>
@@ -36,6 +60,12 @@
             <artifactId>framework</artifactId>
             <type>zip</type>
             <classifier>configs</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>osmf</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.adobe.flex.framework</groupId>
@@ -77,6 +107,19 @@
             <artifactId>flexunit</artifactId>
             <type>swc</type>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.asmock</groupId>
+            <artifactId>asmock</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.asmock</groupId>
+            <artifactId>asmock-flexunit</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+            <classifier>4.0</classifier>
         </dependency>
         <dependency>
             <groupId>org.as3commons</groupId>

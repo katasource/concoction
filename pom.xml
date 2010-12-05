@@ -65,6 +65,25 @@
             </dependency>
 
             <dependency>
+                <groupId>com.adobe.flex.framework</groupId>
+                <artifactId>osmf</artifactId>
+                <version>${flex.sdk.version}</version>
+                <type>swc</type>
+            </dependency>
+            <dependency>
+                <groupId>net.sourceforge.asmock</groupId>
+                <artifactId>asmock</artifactId>
+                <version>1.0</version>
+                <type>swc</type>
+            </dependency>
+            <dependency>
+                <groupId>net.sourceforge.asmock</groupId>
+                <artifactId>asmock-flexunit</artifactId>
+                <version>1.0</version>
+                <type>swc</type>
+                <classifier>4.0</classifier>
+            </dependency>
+            <dependency>
                 <groupId>org.as3commons</groupId>
                 <artifactId>as3commons-bytecode</artifactId>
                 <version>0.8.5</version>

@@ -1,9 +1,11 @@
-package org.katasource.concoction {
+package org.katasource.concoction.note {
+import org.as3commons.lang.IEquals;
+
 /**
  * @author Bryan Turner
  * @since 0.1
  */
-public class FunctionNotificationListener implements INotificationListener {
+public class FunctionNotificationListener implements IEquals, INotificationListener {
 
     private var _callback:Function;
 
@@ -13,6 +15,10 @@ public class FunctionNotificationListener implements INotificationListener {
 
     public function get callback():Function {
         return _callback;
+    }
+
+    public function equals(other:Object):Boolean {
+        return (other === this || other === callback);
     }
 
     public function onNotification(notification:INotification):void {

@@ -1,5 +1,5 @@
 package org.katasource.concoction.model {
-import flash.utils.Dictionary;
+
 
 /**
  * @author Bryan Turner
@@ -7,10 +7,10 @@ import flash.utils.Dictionary;
  */
 public class DefaultModelManager implements IModelManager {
 
-    private var _proxies:Dictionary;
+    private var _proxies:Object;
 
     public function DefaultModelManager() {
-        _proxies = new Dictionary();
+        _proxies = {};
     }
 
     public function addProxy(proxy:IProxy):void {

@@ -51,11 +51,11 @@ public class Reaction implements IDisposable, IInitializable {
     }
 
     public function dispose():void {
-        _eventDispatcher.removeEventListener(type, listener);
+        eventDispatcher.removeEventListener(type, listener);
     }
 
     public function initialize():void {
-        _eventDispatcher.addEventListener(type, listener, useCapture, priority, useWeakReference);
+        eventDispatcher.addEventListener(type, listener, useCapture, priority, useWeakReference);
     }
 }
 }

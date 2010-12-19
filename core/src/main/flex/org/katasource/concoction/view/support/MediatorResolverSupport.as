@@ -1,4 +1,4 @@
-package org.katasource.concoction.support {
+package org.katasource.concoction.view.support {
 import org.as3commons.lang.ClassUtils;
 
 /**

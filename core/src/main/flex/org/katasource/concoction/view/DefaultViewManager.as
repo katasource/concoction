@@ -1,5 +1,5 @@
 package org.katasource.concoction.view {
-
+import org.katasource.concoction.lifecycle.Lifecycle;
 
 /**
  * @author Bryan Turner
@@ -18,6 +18,8 @@ public class DefaultViewManager implements IViewManager {
             throw new ArgumentError("A mediator is already registered with name [" + mediator.name + "]");
         }
         _mediators[mediator.name] = mediator;
+
+        Lifecycle.initialize(mediator);
     }
 
     public function getMediator(name:String):IMediator {
@@ -32,9 +34,22 @@ public class DefaultViewManager implements IViewManager {
     }
 
     public function removeMediator(name:String):void {
-        if (_mediators.hasOwnProperty(name)) {
+        var mediator:IMediator = getMediator(name);
+        if (mediator) {
             delete _mediators[name];
+
+            Lifecycle.dispose(mediator);
         }
     }
 }
+}
+
+import org.katasource.concoction.view.IMediator;
+
+class Wrapper {
+
+    private var _mediator:IMediator;
+
+    public function Wrapper() {
+    }
 }

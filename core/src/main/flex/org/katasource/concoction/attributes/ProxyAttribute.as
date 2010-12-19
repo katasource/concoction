@@ -5,6 +5,8 @@ package org.katasource.concoction.attributes {
  */
 public class ProxyAttribute {
 
+    public static const NAME:String = "Proxy";
+
     public function ProxyAttribute() {
     }
 }

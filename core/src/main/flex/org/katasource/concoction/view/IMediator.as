@@ -1,6 +1,6 @@
 package org.katasource.concoction.view {
 import org.katasource.concoction.IReagent;
-import org.katasource.concoction.note.INotification;
+import org.katasource.concoction.note.INotificationRegistrar;
 
 /**
  * @author Bryan Turner
@@ -8,8 +8,6 @@ import org.katasource.concoction.note.INotification;
  */
 public interface IMediator extends IReagent {
 
-    function getSubscriptions():Vector.<String>;
-
-    function notify(notification:INotification):void;
+    function registerNotifications(registrar:INotificationRegistrar):void;
 }
 }

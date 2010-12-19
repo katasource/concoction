@@ -7,6 +7,8 @@ import org.as3commons.reflect.MetaData;
  */
 public class ControllerAttribute extends NameAttributeSupport {
 
+    public static const NAME:String = "Controller";
+
     public function ControllerAttribute() {
     }
 

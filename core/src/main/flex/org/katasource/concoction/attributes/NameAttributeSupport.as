@@ -10,15 +10,12 @@ import org.as3commons.reflect.MetaDataArgument;
  * @author Bryan Turner
  * @since 0.1
  */
-public class NameAttributeSupport implements INameAttribute {
+public class NameAttributeSupport extends AttributeSupport implements INameAttribute {
 
-    protected var logger:ILogger;
     private var _nameClass:Class;
 
     public function NameAttributeSupport(nameClass:Class = null) {
         _nameClass = nameClass;
-
-        logger = LoggerFactory.getClassLogger(ClassUtils.forInstance(this));
     }
 
     public function get nameClass():Class {
@@ -32,7 +29,29 @@ public class NameAttributeSupport implements INameAttribute {
     protected function getValue(metadata:MetaData, argumentName:String):String {
         var argument:MetaDataArgument = metadata.getArgument(argumentName);
 
-        return argument ? argument.key : null;
+        return (argument ? argument.value : null);
+    }
+
+    protected function getValueAsBoolean(metadata:MetaData, argumentName:String):Boolean {
+        var value:String = getValue(metadata, argumentName);
+        if (value) {
+            return StringUtils.equalsIgnoreCase("true", value);
+        }
+        return false;
+    }
+
+    protected function getValueAsInt(metadata:MetaData, argumentName:String):int {
+        var value:String = getValue(metadata, argumentName);
+        if (value) {
+            if (StringUtils.isNumeric(value)) {
+                return int(value);
+            } else {
+                var logger:ILogger = LoggerFactory.getClassLogger(NameAttributeSupport);
+                logger.warn("{0}.{1} ({2}) cannot be interpreted as an int",
+                        [metadata.name, argumentName, value])
+            }
+        }
+        return 0;
     }
 
     protected function parseArguments(metadata:MetaData):void {
@@ -48,6 +67,7 @@ public class NameAttributeSupport implements INameAttribute {
                 return ClassUtils.forName(value);
             } catch (e:Error) {
                 //If we can't load the class, we log an error and then pretend a nameClass wasn't set.
+                var logger:ILogger = LoggerFactory.getClassLogger(NameAttributeSupport);
                 logger.warn("{0}.nameClass references {1}; the class could not be loaded", [name, value]);
             }
         }

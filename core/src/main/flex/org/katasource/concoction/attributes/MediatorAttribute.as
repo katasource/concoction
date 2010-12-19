@@ -7,6 +7,8 @@ import org.as3commons.reflect.MetaData;
  */
 public class MediatorAttribute extends NameAttributeSupport {
 
+    public static const NAME:String = "Mediator";
+
     public function MediatorAttribute() {
     }
 
